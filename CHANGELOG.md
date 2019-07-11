@@ -1,6 +1,13 @@
 # Changelog
 
-## [2019.28] - 2019-07-08
+
+## 2019-07-11
+### Work done
+- Course: Communicating with empathy - __f2f__
+- Course: Building your People Network - __ol__
+- Book: Tribes - Seth Godin
+
+## 2019-07-10
 ### Work done
 - Course: Creative thinking - __f2f__
 - Course: Improving listening skills - __f2f__
