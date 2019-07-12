@@ -4,6 +4,7 @@
 ## 2019-07
 
 ### 12
+- Course: Managing Technical Professionals - __ll__
 - Book: Work the system - Sam Carpenter - Start
 
 ### 11
