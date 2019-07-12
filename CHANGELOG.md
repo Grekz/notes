@@ -1,14 +1,17 @@
 # Changelog
 
 
-## 2019-07-11
-### Work done
+## 2019-07
+
+### 12
+- Book: Work the system - Sam Carpenter - Start
+
+### 11
 - Course: Communicating with empathy - __f2f__
 - Course: Building your People Network - __ol__
-- Book: Tribes - Seth Godin
+- Book: Tribes - Seth Godin - Finish
 
-## 2019-07-10
-### Work done
+### 10
 - Course: Creative thinking - __f2f__
 - Course: Improving listening skills - __f2f__
 - Course: Having difficult conversations - __f2f__
