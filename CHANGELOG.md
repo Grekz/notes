@@ -3,6 +3,15 @@
 
 ## 2019-07
 
+### 17
+- Course: Be more productive: Take small steps, Have big goals - Start - __ol__
+
+### 16
+- Book: Work the system - Sam Carpenter - Progress
+
+### 15
+- Code: Start & Finish react native mobile app - geo-gamer 
+
 ### 12
 - Course: Managing Technical Professionals - __ll__
 - Book: Work the system - Sam Carpenter - Start
