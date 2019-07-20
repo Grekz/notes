@@ -3,6 +3,13 @@
 
 ## 2019-07
 
+### Upcoming work
+- Create site for posts & videos
+- Make game site from app
+
+### 20
+- Code: React native component library - ChingonReactNative - Start
+
 ### 17
 - Course: Be more productive: Take small steps, Have big goals - Start - __ol__
 
