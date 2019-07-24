@@ -7,6 +7,12 @@
 - Create site for posts & videos
 - Make game site from app
 
+### 24
+- Book: Work the system - Sam Carpenter - Finish
+
+### 21
+- Code: React native component library - ChingonReactNative - Finish - v0.1
+
 ### 20
 - Code: React native component library - ChingonReactNative - Start
 
