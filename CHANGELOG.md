@@ -1,11 +1,18 @@
 # Changelog
 
-
-## 2019-07
-
 ### Upcoming work
 - Create site for posts & videos
 - Make game site from app
+
+## 2019-08
+
+### 14
+- Course: AWS Crash course - __ol__
+
+### 06
+- Book: The Five Dysfunctions of a Team - Patrick Lencioni - Finish
+
+## 2019-07
 
 ### 24
 - Book: Work the system - Sam Carpenter - Finish
