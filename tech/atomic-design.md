@@ -14,11 +14,11 @@ The atomic design methodology consist of splitting the design into five differen
 Having this categorization helps you organize in a better way how you compose your User Interfaces.
 
 ### Atoms
-The category of atoms is the most basic of them all. Those that fall under this category are the building blocks of the rest of the components, the fundation.
+The category of atoms is the most basic of them all. Those that fall under this category are the building blocks of the rest of the components, the foundation.
 One quick way of identify if an element is in this category is: if the component contains one to three html tag. The rules to categorize components is up to you to define it.
 
 ### Molecules
-This type of components are the next in term of complexity. You could thing of this components as something more elaborated than just a simple html element. An example would be: a whole input with button and label with some behaviour.
+This type of components are the next in term of complexity. You could thing of this components as something more elaborated than just a simple html element. An example would be: a whole input with button and label with some behavior.
 
 ### Organisms
 The organisms category is a somewhat complex UI component composed of severals molecules and/ or atoms.
