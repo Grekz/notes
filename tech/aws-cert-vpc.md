@@ -287,3 +287,16 @@ Logs the source and the destination ip addresses.
 
 &nbsp;
 ### What is DirectConnect?
+
+&nbsp;
+### Can you do VPC Peering with a VPC from another account?
+
+Yes.
+
+&nbsp;
+### How any Internet Gateways can you have in a VPC?
+
+One.
+
+&nbsp;
+### 

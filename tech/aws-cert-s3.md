@@ -139,3 +139,9 @@ Server-Side Encryption with Key Management Service (AWS KMS). S3 will use your C
 
 &nbsp;
 ### Can S3 work with Lambda?
+
+&nbsp;
+### What is a Signed URL in S3?
+
+&nbsp;
+### What is a Presigned URL in S3?
