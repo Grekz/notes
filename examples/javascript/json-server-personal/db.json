@@ -1,0 +1,100 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "applicants": {
+    "id": "947af773-f488-4fce-a95c-d7f0639bfdcf",
+    "data": {
+      "id": "947af773-f488-4fce-a95c-d7f0639bfdcf",
+      "type": "applicants",
+      "links": {
+        "self": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf"
+      },
+      "attributes": {
+        "name": "ONBOARDING TEST",
+        "email": "new.timestamps@deliveryhero.com",
+        "phone_number": "+4307378722",
+        "rejected_at": null,
+        "approved_at": null,
+        "duplicate": true,
+        "rooster_integration_logs": {},
+        "landed_at": "2020-03-09T22:08:55.691Z",
+        "created_at": "2020-03-09T22:08:55.571Z",
+        "rooster_id": null,
+        "location_id": "se:berlin:monstropolis",
+        "language_id": "de"
+      },
+      "relationships": {
+        "fields": {
+          "links": {
+            "self": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/relationships/fields",
+            "related": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/fields"
+          }
+        },
+        "city": {
+          "links": {
+            "self": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/relationships/city",
+            "related": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/city"
+          }
+        },
+        "location": {
+          "links": {
+            "self": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/relationships/location",
+            "related": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/location"
+          }
+        },
+        "applicant_stages": {
+          "links": {
+            "self": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/relationships/applicant_stages",
+            "related": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/applicant_stages"
+          }
+        },
+        "notes": {
+          "links": {
+            "self": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/relationships/notes",
+            "related": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/notes"
+          }
+        },
+        "stages": {
+          "links": {
+            "self": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/relationships/stages",
+            "related": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/stages"
+          }
+        },
+        "workflow": {
+          "links": {
+            "self": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/relationships/workflow",
+            "related": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/workflow"
+          }
+        },
+        "rejection_reason": {
+          "links": {
+            "self": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/relationships/rejection_reason",
+            "related": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/rejection_reason"
+          }
+        },
+        "language": {
+          "links": {
+            "self": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/relationships/language",
+            "related": "/v1/applicants/947af773-f488-4fce-a95c-d7f0639bfdcf/language"
+          }
+        }
+      }
+    },
+    "araraId": "v1"
+  }
+}
