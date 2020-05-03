@@ -25,6 +25,108 @@ const MyComponent = ({
   if (containerOfThings && oneList && oneList.length > 1) {
     return (
       <ul>
+        <Othercomponent
+          whichString={whichString}
+          whichNumber={whichNumber}
+          id={id}
+          style={style}
+          extraProps={extraProps}
+          alt={oneList[0]}
+          extraThing={extraThing}
+        >
+          {text}
+        </Othercomponent>
+        <Othercomponent
+          whichString={whichString}
+          whichNumber={whichNumber}
+          id={id}
+          style={style}
+          extraProps={extraProps}
+          alt={oneList[1]}
+          extraThing={extraThing}
+        >
+          {text}
+        </Othercomponent>
+        <Othercomponent
+          whichString={whichString}
+          whichNumber={whichNumber}
+          id={id}
+          style={style}
+          extraProps={extraProps}
+          alt={oneList[2]}
+          extraThing={extraThing}
+        >
+          {text}
+        </Othercomponent>
+      </ul>
+    );
+  } else {
+    return (
+      <Othercomponent
+        whichString={whichString}
+        whichNumber={whichNumber}
+        id={id}
+        style={style}
+        extraProps={extraProps}
+        extraThing={extraThing}
+        alt={text}
+      >
+        {text}
+      </Othercomponent>
+    );
+  }
+  return <></>;
+};
+
+const MyApp = (props) => (
+  <MyComponent id={123} aType={"SomeString"} text="some content" {...props} />
+);
+```
+
+Ok... bear with me now. I know it is ugly. Let us try to make it better one step at the time.
+
+### #1 Stay consistent
+
+In the first component(`<Othercomponent/>`) we are declaring our component in the way: `function XXXXX() { /* ... */ }` and not in a PascalCase. While in the second component(`<MyComponent/>`) we are using arrow functions and PascalCase. It is important to stay consistent across your codebase so when you start to create another component you don't have to question yourself or your teammates on what is the right way to define my components. If you have a consistent codebase it allows your fellow developers to make better assumptions on what's the current state and rules followed, liberating from questioning every single step of the way while implementing code around an existing piece of code.
+
+**From**:
+
+```jsx
+function Othercomponent({ children, props }) {
+  return <div {...props}>{children}</div>;
+}
+```
+
+**To**:
+
+```jsx
+const OtherComponent = ({ children, props }) => {
+  return <div {...props}>{children}</div>;
+};
+```
+
+**Result**:
+
+```jsx
+const OtherComponent = ({ children, props }) => {
+  return <div {...props}>{children}</div>;
+};
+
+const MyComponent = ({
+  id,
+  text,
+  style,
+  extraProps,
+  oneList,
+  containerOfThings,
+  aType,
+}) => {
+  const whichString = aType == "SomeString" ? "aString" : "bString";
+  const whichNumber = aType == "SomeString" ? 123 : 321;
+  const extraThing = "Hey! I am a string";
+  if (containerOfThings && oneList && oneList.length > 1) {
+    return (
+      <ul>
         <OtherComponent
           whichString={whichString}
           whichNumber={whichNumber}
@@ -83,13 +185,51 @@ const MyApp = (props) => (
 );
 ```
 
-Ok... bear with me now. I know it is ugly. Let us try to make it better one step at the time.
+### #2 Leverage the language/framework features
 
-### #1 Stay consistent
+One incredibly common thing I've seen recently when doing code reviews for Frontend Engineers is that we are no longer familiar with the features that the framework or the syntactic sugar the language offers.
 
-In the first component(`<Othercomponent/>`) we are declaring our component in the way: `function XXXXX() { /* ... */ }` and not in a PascalCase. While in the second component(`<MyComponent/>`) we are using arrow functions and PascalCase. It is important to stay consistent across your codebase so when you start to create another component you don't have to question yourself or your teammates on what is the right way to define my components. If you have a consistent codebase it allows your fellow developers to make better assumptions on what's the current state and rules followed, liberating from questioning every single step of the way while implementing code around an existing piece of code.
+#### Children as props
 
-Result:
+We know that everything you write inside a React component is a children and children are passed as props(you can send them inside or with the `children={'my child'}` prop). So we can always leverage this when we are implementing our components.
+
+#### No return statement
+
+We can make use of the JS feature of the one-liner functions, that don't need any `return` keyword. Please use the features that the good people working on them! https://github.com/tc39/proposals
+
+**From:**
+
+```jsx
+const OtherComponent = (props) => {
+  return <div {...props} />;
+};
+
+
+const MyComponent = ({
+  id,
+  text,
+  style,
+  extraProps,
+  oneList,
+  containerOfThings,
+  aType,
+}) => {
+  // ..
+        <OtherComponent
+          whichString={whichString}
+          whichNumber={whichNumber}
+          id={id}
+          style={style}
+          extraProps={extraProps}
+          alt={oneList[0]}
+          extraThing={extraThing}
+        >
+          {text}
+        </OtherComponent>
+  // ...
+```
+
+**To:**
 
 ```jsx
 const OtherComponent = (props) => <div {...props} />;
@@ -103,12 +243,7 @@ const MyComponent = ({
   containerOfThings,
   aType,
 }) => {
-  const whichString = aType == "SomeString" ? "aString" : "bString";
-  const whichNumber = aType == "SomeString" ? 123 : 321;
-  const extraThing = "Hey! I am a string";
-  if (containerOfThings && oneList && oneList.length > 1) {
-    return (
-      <ul>
+  // ...
         <OtherComponent
           whichString={whichString}
           whichNumber={whichNumber}
@@ -120,66 +255,11 @@ const MyComponent = ({
         >
           {children}
         </OtherComponent>
-        <OtherComponent
-          whichString={whichString}
-          whichNumber={whichNumber}
-          id={id}
-          style={style}
-          extraProps={extraProps}
-          alt={oneList[1]}
-          extraThing={extraThing}
-        >
-          {children}
-        </OtherComponent>
-        <OtherComponent
-          whichString={whichString}
-          whichNumber={whichNumber}
-          id={id}
-          style={style}
-          extraProps={extraProps}
-          alt={oneList[2]}
-          extraThing={extraThing}
-        >
-          {children}
-        </OtherComponent>
-      </ul>
-    );
-  } else {
-    return (
-      <OtherComponent
-        whichString={whichString}
-        whichNumber={whichNumber}
-        id={id}
-        style={style}
-        extraProps={extraProps}
-        extraThing={extraThing}
-        alt={children}
-      >
-        {children}
-      </OtherComponent>
-    );
-  }
-  return <></>;
-};
+  // ...
 
-const MyApp = (props) => (
-  <MyComponent id={123} aType={"SomeString"} {...props}>
-    some content
-  </MyComponent>
-);
 ```
 
-### #2 Leverage the language/framework features
-
-One incredibly common thing I've seen recently when doing code reviews for Frontend Engineers is that we are no longer familiar with the features that the framework or the syntactic sugar the language offers.
-
-#### Children as props
-
-We know that everything you write inside a React component is a children and children are passed as props(you can send them inside or with the `children={'my child'}` prop). So we can always leverage this when we are implementing our components.
-
-#### No return statement
-
-We can make use of the JS feature of the one-liner functions, that don't need any `return` keyword. Please use the features that the good people working on them! https://github.com/tc39/proposals
+**Result:**
 
 ```jsx
 const OtherComponent = (props) => <div {...props} />;
@@ -263,6 +343,50 @@ const MyApp = (props) => (
 
 Some people like to argue that we should always be explicit. That every single component should have all the props deconstructed. I understand that this approach is desirable in some scenarios, but in most cases is just noise to the code. If you have this need, please consider moving to Typescript(or if you just want to make better JS code in general). In our example we can make a lot of things implicit because we are deconstructing some variables that we never touch and we don't care.
 
+**From:**
+
+```jsx
+// ...
+const MyComponent = ({
+  id,
+  children,
+  style,
+  extraProps,
+  oneList,
+  containerOfThings,
+  aType,
+}) => {
+  // ...
+  <OtherComponent
+    whichString={whichString}
+    whichNumber={whichNumber}
+    id={id}
+    style={style}
+    extraProps={extraProps}
+    alt={oneList[0]}
+    extraThing={extraThing}
+  >
+    {children}
+  </OtherComponent>
+```
+
+**To:**
+
+```jsx
+// ...
+const MyComponent = ({ oneList, containerOfThings, aType, ...props }) => {
+  // ...
+  <OtherComponent
+    whichString={whichString}
+    whichNumber={whichNumber}
+    alt={oneList[0]}
+    extraThing={extraThing}
+    {...props}
+  />
+```
+
+**Result:**
+
 ```jsx
 const OtherComponent = (props) => <div {...props} />;
 
@@ -332,6 +456,44 @@ When we add those logical branches once in a while we make dumb mistakes such a 
 #### Remove the ternary if
 
 One nifty trick that you should use to reduce logical branches from ternary ifs is the usage of maps(you can also call them hashes/objects). You can think of them as some configuration helpers. 😇
+
+**From:**
+
+```jsx
+// ...
+const whichString = aType == "SomeString" ? "aString" : "bString";
+const whichNumber = aType == "SomeString" ? 123 : 321;
+// ...
+<OtherComponent
+  whichString={whichString}
+  whichNumber={whichNumber}
+  alt={oneList[0]}
+  extraThing={extraThing}
+  {...props}
+/>;
+// ...
+```
+
+**To:**
+
+```jsx
+// ...
+const valuesMap = {
+  SomeString: { str: "aString", num: 123 },
+  OtherString: { str: "bString", num: 321 },
+};
+// ...
+<OtherComponent
+  whichString={valuesMap[aType].str}
+  whichNumber={valuesMap[aType].num}
+  alt={oneList[0]}
+  extraThing={extraThing}
+  {...props}
+/>;
+// ...
+```
+
+**Result:**
 
 ```jsx
 const OtherComponent = (props) => <div {...props} />;
@@ -403,6 +565,8 @@ In this example we can see that there is unnecessary return, and the example is 
 
 Now if we can work around having the same html structure for all the scenarios, it will make your code ridiculously simple. You might need to improve your CSS skills if you don't see a clear way on doing this.
 
+**Result:**
+
 ```jsx
 const OtherComponent = (props) => <div {...props} />;
 
@@ -446,6 +610,8 @@ const MyApp = (props) => (
 My last advice for this article is this: Check your Constants!
 
 Always make sure to leave them outside your React Components, you don't need to redeclare them every time the component is called. Also use set default values for your props, you will save some time by letting everyone know which is the default behavior of your component.
+
+**Result:**
 
 ```jsx
 const STRING_TYPES = { SomeString: "SomeString", OtherString: "OtherString" };
